@@ -21,10 +21,20 @@ li {
   clear: both;
 }
 
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+  margin: 40px;
+}
+
 .towers {
+  margin: 40px auto;
   display: block;
-  width: 800px;
-  min-height:400px;
+  width: 660px;
   background: blue;
 }
 
@@ -32,18 +42,44 @@ li {
   position: relative;
   float: left;
   width: 200px;
-  margin: 0 30px;
-  background: red;
-  min-height:400px;
+  margin: 0 10px;
+  background: white;
 }
 
 ul:hover {
-  background: purple;
+  background: LightGrey;
 }
 
 .tower > li {
+  color: white;
+  text-align: center;
+  display: block;
   position: relative;
-  height: 120px;
-  margin: 10px 0;
-  background: green;
+  height: 100px;
+  margin: 1px auto;
+  background: transparent;
+}
+
+.tower > .one, .tower > .two, .tower > .three {
+  border: 1px solid black;
+  border-radius: 5px;
+  background: IndianRed;
+}
+
+.tower > .one {
+  width: 77px;
+}
+
+.tower > .two {
+  width: 133px;
+
+}
+
+.tower > .three {
+  width:200px;
+}
+
+.selected {
+  background: MediumSeaGreen;
+
 }

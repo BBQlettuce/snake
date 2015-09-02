@@ -24,9 +24,11 @@
 
     if( this.firstTowerSelected === null) {
       this.firstTowerSelected = index;
+      $towerSelected.toggleClass("selected");
     }
     else {
       this.game.move(this.firstTowerSelected, index);
+      $($towers[this.firstTowerSelected]).toggleClass("selected");
       this.render();
       this.firstTowerSelected = null;
     }
@@ -71,8 +73,6 @@
     $towers.append($tower3);
 
     this.$el.append($towers);
-
-    console.log("asdf");
   };
 
   View.prototype.render = function () {
@@ -93,9 +93,24 @@
 
         if (currentDisc === undefined) {
           $currentPosition.text("");
+          $currentPosition.removeClass();
         }
         else {
           $currentPosition.text(currentDisc);
+
+          switch(currentDisc) {
+            case 1:
+              $currentPosition.addClass("one");
+              break;
+            case 2:
+              $currentPosition.addClass("two");
+              break;
+            case 3:
+              $currentPosition.addClass("three");
+              break;
+          }
+
+          // $currentPosition.addClass(currentDisc.toString());
         }
 
       }
