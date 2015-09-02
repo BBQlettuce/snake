@@ -21,6 +21,17 @@ li {
   clear: both;
 }
 
+body {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 36px;
+  margin: 30px;
+}
+
 .grid {
   width: 300px;
   margin: 20px auto;
@@ -29,11 +40,12 @@ li {
 
 .grid > li {
   float: left;
-  display: block;;
+  display: block;
   width: 98px;
   height: 98px;
   border: 1px solid red;
   background: gray;
+  font-size: 50px;
 }
 
 .grid >li:hover {

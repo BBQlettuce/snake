@@ -1,0 +1,45 @@
+html, body, figure, ul, li, h1 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+
+  font: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+li {
+  list-style: none;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.towers {
+  display: block;
+  width: 800px;
+  min-height:400px;
+  background: blue;
+}
+
+.tower {
+  position: relative;
+  float: left;
+  width: 200px;
+  margin: 0 30px;
+  background: red;
+  min-height:400px;
+}
+
+.tower > li {
+  position: relative;
+  height: 120px;
+  margin: 10px 0;
+  background: green;
+}
