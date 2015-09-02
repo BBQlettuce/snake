@@ -35,17 +35,18 @@ h1 {
 .grid {
   width: 300px;
   margin: 20px auto;
-  border: 10px solid black;
+  border: 5px solid black;
 }
 
 .grid > li {
   float: left;
   display: block;
-  width: 98px;
-  height: 98px;
-  border: 1px solid red;
+  width: 90px;
+  height: 90px;
+  border: 5px solid black;
   background: gray;
-  font-size: 50px;
+  font-size: 70px;
+  font-weight: 600;
 }
 
 .grid >li:hover {
@@ -54,4 +55,13 @@ h1 {
 
 .grid > .occupied {
   background: white;
+}
+
+.grid > .winner {
+  background: green;
+  color: white;
+}
+
+.grid > .loser {
+  color: red;
 }

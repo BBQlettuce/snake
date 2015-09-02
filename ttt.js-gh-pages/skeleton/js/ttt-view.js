@@ -14,35 +14,47 @@
     this.$el.on("click", "li", this.makeMove.bind(this));
   };
 
-  // View.prototype.playMove = function(e) {
-  //   // console.log(e);
-  //   $li = $("li");
-  //   var $square = $(e.currentTarget);
-  //   console.log($square);
-  //   console.log($li.index($square));
-  //   this.makeMove($square);
-  // };
-
   View.prototype.makeMove = function ($square) {
     var $tiles = $("li");
     var $li = $($square.currentTarget);
     var index = $tiles.index($li);
 
     var currentPosition = [Math.floor(index / 3), (index % 3)]
-    console.log(currentPosition);
     var symbol = this.game.currentPlayer;
-    this.game.playMove(currentPosition);
-    $li.addClass("occupied");
-    $li.text(symbol);
+
+    try {
+      this.game.playMove(currentPosition);
+      $li.addClass("occupied");
+      $li.text(symbol);
+    }
+    catch(e) {
+      alert("Invalid move");
+    }
 
     if(this.game.isOver()) {
-      var $h2 = $("<h2></h2>");
-      $h2.text("A winner is " + this.game.winner());
-      console.log($h2);
-      this.$el.append($h2);
+      this.winCleanUp();
     };
 
   };
+
+  View.prototype.winCleanUp = function() {
+    var $h2 = $("<h2></h2>")
+    var winner = this.game.winner();
+    if(winner === null) {
+      $h2.text("It's a draw!")
+    }
+    else {
+      $winnerTiles = $("li:contains('" + winner + "')");
+      $winnerTiles.addClass("winner");
+      $winnerTiles.removeClass("occupied");
+      
+      $(".occupied").addClass("loser");
+
+      $h2.text("A winner is " + this.game.winner());
+    }
+    this.$el.append($h2);
+    this.$el.off("click"); // disables listeners at end of game
+  }
 
   View.prototype.setupBoard = function () {
     console.log("hello");

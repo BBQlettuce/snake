@@ -7,13 +7,41 @@
     this.game = game;
     this.$el = $el;
     this.setupTowers();
+    this.bindEvents();
     this.render();
+    this.firstTowerSelected = null;
   };
 
+  View.prototype.bindEvents = function () {
+    this.$el.on("click", "ul", this.clickTower.bind(this));
+  };
 
+  View.prototype.clickTower = function (e) {
+    console.log("click");
+    var $towers = $("ul");
+    var $towerSelected = $(e.currentTarget);
+    var index = $towers.index($towerSelected);
+
+    if( this.firstTowerSelected === null) {
+      this.firstTowerSelected = index;
+    }
+    else {
+      this.game.move(this.firstTowerSelected, index);
+      this.render();
+      this.firstTowerSelected = null;
+    }
+
+    if( this.game.isWon()) {
+      var $h2 = $("<h2></h2>");
+      $h2.text("A winner is you");
+      this.$el.append($h2);
+    }
+
+
+  }
 
   View.prototype.setupTowers = function () {
-    var $towers = $("<ul></ul>");
+    var $towers = $("<section></section>");
     $towers.addClass("towers");
 
     var $tower1 = $("<ul></ul>");

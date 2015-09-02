@@ -37,6 +37,10 @@ li {
   min-height:400px;
 }
 
+ul:hover {
+  background: purple;
+}
+
 .tower > li {
   position: relative;
   height: 120px;
