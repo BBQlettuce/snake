@@ -2,9 +2,9 @@
   window.SnakeGame = window.SnakeGame || {};
 
 
-  var Coord = window.SnakeGame.Coord = function(x, y) {
-    this.x = x;
-    this.y = y;
+  var Coord = window.SnakeGame.Coord = function(pos) {
+    this.x = pos[0];
+    this.y = pos[1];
   };
 
   var plus = Coord.plus = function(){
